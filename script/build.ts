@@ -4,9 +4,9 @@ import * as fs from 'fs';
 import * as path from 'path';
 const config = {
   // 打包后产物路径
-  buildPath: path.resolve('./dist'),
+  buildPath: path.resolve('./docs/.vitepress/dist'),
   // dev服务器对应的文件夹路径
-  serviceFilePath: '/home/nestjs-backend/',
+  serviceFilePath: '/opt/blog/',
   serviceUser: 'root@1.117.146.183',
 };
 
@@ -14,7 +14,6 @@ const config = {
 const compressFile = () => {
   return new Promise((resolve, reject) => {
     console.log('压缩打包产物...');
-    // const zipFilePath = path.resolve(config.buildPath, 'output.zip')
     const zipFilePath = path.resolve('./', 'output.zip');
     const output = fs.createWriteStream(zipFilePath);
     const archive = archiver('zip', {
@@ -86,7 +85,7 @@ const copyPackage = ()=>{
 const init = async () => {
   try {
 
-    copyPackage()
+    // copyPackage()
     await compressFile();
     // 上传服务器
     await execPro(
@@ -95,7 +94,7 @@ const init = async () => {
     // 上传sh脚本
     // await execPro(`scp ./extract.sh ${config.serviceUser}:/opt/fdsec/`)
     await execPro(
-      `ssh ${config.serviceUser} bash /home/nestjs-backend/extract.sh`,
+      `ssh ${config.serviceUser} bash ${config.serviceFilePath}extract.sh`,
     );
     // 删除原来的文件
     await deleteOutput();
