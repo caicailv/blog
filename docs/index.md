@@ -1,9 +1,11 @@
 # 0.5 个烂仔程序员的一些扯犊子
-
+- [显示器坏了](../pages/23.8.18-显示器坏了.md)
 
 
 <custom-directory />
-testsdasdas
 <script setup>
 import customDirectory from './components/customDirectory.vue'
 </script>
+
+
+
