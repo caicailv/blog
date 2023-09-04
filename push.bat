@@ -6,4 +6,5 @@ cmd /c "git add ."
 cmd /c "git commit -m 'push.bat-ci'"
 echo git push
 cmd /c "git push"
+cmd /c "pnpm run build"
 exit

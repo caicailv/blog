@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "vitepress dev docs",
-    "build": "vitepress build docs && ts-node ./script/build.ts"
+    "dev": "vitepress dev docs",
+    "up": "ts-node ./script/build.ts",
+    "build": "vitepress build docs && pnpm run up"
   },
   "keywords": [],
   "author": "",

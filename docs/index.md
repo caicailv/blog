@@ -1,3 +1,9 @@
-# 0.5个烂仔程序员的一些扯犊子
-- [显示器坏了](./pages/显示器坏了.md)
-- [23.8.20第一次刷街.md](./pages/23.8.20第一次刷街.md.md)
+# 0.5 个烂仔程序员的一些扯犊子
+
+
+
+<custom-directory />
+testsdasdas
+<script setup>
+import customDirectory from './components/customDirectory.vue'
+</script>
