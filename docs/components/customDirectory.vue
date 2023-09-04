@@ -2,7 +2,7 @@
   <div>
     <ul>
       <li v-for="page in pages" :key="page.path">
-        <a :href="page.path2" >{{ page.title }}</a>
+        <a :href="page.path">{{ page.title }}</a>
       </li>
     </ul>
   </div>
@@ -16,7 +16,7 @@ export default {
       const pageContext = import.meta.glob(`../pages/*.md`, { as: 'raw', eager: true })
       return Object.keys(pageContext).map((path) => {
         const title = path.replace('../pages/', '').replace('.md', '');
-        return { title, path,path2:`./../pages/${title}.html` };
+        return { title, path: `./../pages/${title}.html` };
       });
     },
   },
