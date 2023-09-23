@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vitepress dev docs",
     "up": "ts-node ./script/build.ts",
-    "build": "vitepress build docs && pnpm run up"
+    "build": "push.bat && vitepress build docs && pnpm run up"
   },
   "keywords": [],
   "author": "",
