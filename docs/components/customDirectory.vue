@@ -9,6 +9,12 @@
 </template>
 
 <script lang="ts">
+const transformDate = (path: string) => {
+  let time = path.replace('./../pages/', '').replace('.html', '').split('-')[0]
+  let arr = time.split('.')
+  time = arr.map(el => el.length < 2 ? '0' + el : el).join('-')
+  return new Date(`20${time.split('.').reverse().join('-')}`)
+}
 export default {
   computed: {
     pages() {
@@ -17,7 +23,18 @@ export default {
       return Object.keys(pageContext).map((path) => {
         const title = path.replace('../pages/', '').replace('.md', '');
         return { title, path: `./../pages/${title}.html` };
-      });
+      })
+        .sort((a, b) => {
+          let dateA = transformDate(a.path)
+          let dateB = transformDate(b.path)
+          if (dateA < dateB) {
+            return -1;
+          } else if (dateA > dateB) {
+            return 1;
+          } else {
+            return 0;
+          }
+        })
     },
   },
 };
