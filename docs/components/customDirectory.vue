@@ -22,25 +22,26 @@ export default {
       const pageContext = import.meta.glob(`../pages/*.md`, { as: 'raw', eager: true })
       return Object.keys(pageContext).map((path) => {
         const title = path.replace('../pages/', '').replace('.md', '');
-        if(process.env.NODE_ENV === 'development') {
+        if (process.env.NODE_ENV === 'development') {
           return { title, path: `./../pages/${title}.html` };
-        }else{
+        } else {
           return { title, path: `/blog/pages/${title}.html` };
         }
-        
-        
+
+
         // return { title, path: `./../pages/${title}.html` };
       })
-        .sort((a, b) => {
-          let dateA = transformDate(a.path)
-          let dateB = transformDate(b.path)
-          if (dateA < dateB) {
-            return -1;
-          } else if (dateA > dateB) {
-            return 1;
-          } else {
-            return 0;
-          }
+
+        //       const sortedData = data.sort((a, b) => {
+        //   const dateA = new Date(`20${a.split('-')[0]}`);
+        //   const dateB = new Date(`20${b.split('-')[0]}`);
+
+        //   return dateA - dateB;
+        // });
+        .sort((a: any, b: any) => {
+          const dateA = Date.parse(new Date(`20${a.path.split('-')[0]}`));
+          const dateB = Date.parse(new Date(`20${b.path.split('-')[0]}`));
+          return dateA - dateB;
         })
     },
   },
