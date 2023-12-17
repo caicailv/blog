@@ -41,8 +41,11 @@ jobs:
           if [ ! -d "/docs/.vitepress/dist" ]; then
             echo "Error: Build artifacts not found at /docs/.vitepress/dist"
             exit 1
+          else
+            echo "Build artifacts found. Listing files:"
+            ls -al /docs/.vitepress/dist
           fi
-
+          
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
