@@ -5,6 +5,7 @@ export default {
   title: '菜菜驴',
   ignoreDeadLinks: true,
   description: 'Vite & Vue powered static site generator.',
+  assetsDir: 'blog',
   config(md) {
     md.use(imgStyle).use(imgLazy)
   },
