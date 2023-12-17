@@ -2,6 +2,8 @@ import * as archiver from 'archiver';
 import { exec } from 'child_process';
 import * as fs from 'fs';
 import * as path from 'path';
+
+
 const config = {
   // 打包后产物路径
   buildPath: path.resolve('./docs/.vitepress/dist'),
@@ -9,6 +11,8 @@ const config = {
   serviceFilePath: '/opt/blog/',
   serviceUser: 'root@1.117.146.183',
 };
+
+
 
 // 在本地压缩文件
 const compressFile = () => {

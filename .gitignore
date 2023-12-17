@@ -9,6 +9,5 @@ dist
 dist-ssr
 *.local
 logs
-docs
 cache
-docs/img
+docs/img/
