@@ -35,6 +35,14 @@ jobs:
         run: npm install
       - name: Build for development
         run: npm run build2
+
+      - name: Verify build artifacts
+        run: |
+          if [ ! -d "/docs/.vitepress/dist" ]; then
+            echo "Error: Build artifacts not found at /docs/.vitepress/dist"
+            exit 1
+          fi
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
