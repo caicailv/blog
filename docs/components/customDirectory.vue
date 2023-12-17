@@ -22,7 +22,14 @@ export default {
       const pageContext = import.meta.glob(`../pages/*.md`, { as: 'raw', eager: true })
       return Object.keys(pageContext).map((path) => {
         const title = path.replace('../pages/', '').replace('.md', '');
-        return { title, path: `./../pages/${title}.html` };
+        if(process.env.NODE_ENV === 'development') {
+          return { title, path: `./../pages/${title}.html` };
+        }else{
+          return { title, path: `/blog/pages/${title}.html` };
+        }
+        
+        
+        // return { title, path: `./../pages/${title}.html` };
       })
         .sort((a, b) => {
           let dateA = transformDate(a.path)
