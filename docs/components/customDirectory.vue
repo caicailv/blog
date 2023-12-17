@@ -10,7 +10,7 @@
 
 <script lang="ts">
 const transformDate = (path: string) => {
-  let time = path.replace('./../pages/', '').replace('.html', '').split('-')[0]
+  let time = path.replace('./../pages/', '').replace('/blog/pages/','').replace('.html', '').split('-')[0]
   let arr = time.split('.')
   time = arr.map(el => el.length < 2 ? '0' + el : el).join('-')
   return new Date(`20${time.split('.').reverse().join('-')}`)
