@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li v-for="page in pages" :key="page.path">
+      <li v-for="page in pages" :key="page.path" :class="`${page.path}`">
         <a :href="page.path">{{ page.title }}</a>
       </li>
     </ul>
