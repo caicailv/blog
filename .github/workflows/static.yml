@@ -38,21 +38,21 @@ jobs:
 
       - name: Verify build artifacts
         run: |
-          if [ ! -d "/docs/.vitepress/dist" ]; then
+          if [ ! -d "./docs/.vitepress/dist" ]; then
             echo "Error: Build artifacts not found at /docs/.vitepress/dist"
             exit 1
           else
             echo "Build artifacts found. Listing files:"
-            ls -al /docs/.vitepress/dist
+            ls -al ./docs/.vitepress/dist
           fi
-          
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
           # Upload entire repository
         with:
-          path: '/docs/.vitepress/dist'
+          path: './docs/.vitepress/dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v3
