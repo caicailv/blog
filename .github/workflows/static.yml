@@ -38,6 +38,7 @@ jobs:
 
   # Single deploy job since we're just deploying
   deploy:
+    needs: prepare  # 指定 deploy 依赖于 prepare
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -49,8 +50,8 @@ jobs:
         uses: actions/configure-pages@v4
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
-        with:
           # Upload entire repository
+        with:
           path: '/docs/.vitepress/dist'
       - name: Deploy to GitHub Pages
         id: deployment
